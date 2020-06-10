@@ -31,8 +31,8 @@ if __name__ == "__main__":
     print(user.name)
     print(user.followers_count)
 
-    #tweets = api.user_timeline("s2t2", tweet_mode="extended", count=150, exclude_replies=True, include_rts=False)
-    tweets = api.user_timeline("rowaishanna", tweet_mode="extended", count=1000)
+    #tweets = api.user_timeline("s2t2", tweet_mode="extended", count=150, exclude_replies=False, include_rts=False)
+    tweets = api.user_timeline("rowaishanna", tweet_mode="extended", count=1000, exclude_replies=False, include_rts=False)
     print(type(tweets)) #> <class 'tweepy.models.ResultSet'>
 
     for tweet in tweets:
