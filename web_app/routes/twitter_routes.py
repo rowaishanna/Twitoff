@@ -12,7 +12,7 @@ def get_user(screen_name=None):
     print(screen_name)
 
     twitter_user = twitter_api_client.get_user(screen_name)
-    statuses = twitter_api_client.user_timeline(screen_name, tweet_mode="extended", count=500)
+    statuses = twitter_api_client.user_timeline(screen_name, tweet_mode="extended", count=150)
     print("STATUSES COUNT:", len(statuses))
     #return jsonify({"user": user._json, "tweets": [s._json for s in statuses]})
 
