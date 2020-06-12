@@ -3,7 +3,8 @@
 from flask import Blueprint, request, jsonify, render_template
 
 from sklearn.linear_model import LogisticRegressionCV # for example
-from sklearn.tree import DecisionTreeRegressor 
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.tree import DecisionTreeClassifier 
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 import category_encoders as ce  
@@ -43,23 +44,28 @@ def predict():
     for tweet in user_a_tweets:
         labels.append(user_a.screen_name)
         embeddings.append(tweet.embedding)
+        
 
     for tweet in user_b_tweets:
         labels.append(user_b.screen_name)
         embeddings.append(tweet.embedding)
-
-    pipeline = make_pipeline(StandardScaler(),LogisticRegressionCV(max_iter=1000))
+        
+    pipeline = make_pipeline(ce.OrdinalEncoder(), 
+    DecisionTreeClassifier(min_samples_leaf=3, random_state=42, max_depth=9))
 
     pipeline.fit(embeddings, labels)
-
+    
+    print("classifier training score:", pipeline.score(embeddings, labels))
     print("-----------------")
     print("MAKING A PREDICTION...")
+    
     #result_a = classifier.predict([user_a_tweets[0].embedding])
     #result_b = classifier.predict([user_b_tweets[0].embedding])
 
     
     example_embedding = basilica_api_client.embed_sentence(tweet_text, model="twitter")
     result = pipeline.predict([example_embedding])
+    
     #breakpoint()
 
     #return jsonify({"message": "RESULTS", "most_likely": result[0]})
