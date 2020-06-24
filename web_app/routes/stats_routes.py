@@ -7,8 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import DecisionTreeClassifier 
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-import category_encoders as ce  
+from sklearn.preprocessing import StandardScaler  
 from web_app.models import User, Tweet
 from web_app.services.basilica_service import connection as basilica_api_client
 
