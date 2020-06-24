@@ -4,32 +4,46 @@
 {% block content %}
     <h2>Prediction Time</h2>
 
-    <p>Use the form below to predict which user is more likely to say a given tweet...</p>
+    <p>Use the form below to predict which user is more likely to say a given tweet!</p>
 
     <form action="/predict" method="POST">
 
         <!-- TODO: Instead of hard-coding these drop-down menu options, dynamically populate them based on user records from the database -->
+        <br>
+        <br>
+
+        <!-- put in a form to get user -->
+        <br>
         <label>Twitter User A:</label>
         <select name="screen_name_a">
-            <option value="justinbieber"selected="true">@justinbieber</option>
-            <option value="s2t2">@s2t2</option>
-            
+            <option value="RowaisHanna">@rowaishanna</option>
+            <option value="MorganMina">@MorganMina</option>
+            <option value="menaa1122">@menaa1122</option>
+            <option value="dhbotros92">@dhbotros92</option>
+            <option value="LotfallaAndrew">@LotfallaAndrew</option>
+            <option value="menaabdou7">@menaabdou7</option>
+            <option value="bigkahunachills">@bigkahunachills</option>
         </select>
         <br>
 
         <!-- TODO: Instead of hard-coding these drop-down menu options, dynamically populate them based on user records from the database -->
         <label>Twitter User B:</label>
         <select name="screen_name_b">
-            <option value="justinbieber"selected="true">@justinbieber</option>
-            <option value="s2t2">@s2t2</option>
+            <option value="RowaisHanna">@rowaishanna</option>
+            <option value="MorganMina">@MorganMina</option>
+            <option value="menaa1122">@menaa1122</option>
+            <option value="dhbotros92">@dhbotros92</option>
+            <option value="LotfallaAndrew">@LotfallaAndrew</option>
+            <option value="menaabdou7">@menaabdou7</option>
+            <option value="bigkahunachills">@bigkahunachills</option>
           </select>
         <br>
 
         <label>Hypothetical Tweet Text:</label>
-        <input type="text" name="tweet_text" placeholder="insert statement you want to predict here" value="Type in the statement you want to predict here">
+        <input type="text" name="tweet_text" placeholder="your text here" value="your text here">
         <br>
 
-        <button>Submit</button>
+        <button>Predict!</button>
     </form>
 {% endblock %}
 </body>

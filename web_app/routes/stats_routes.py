@@ -3,6 +3,7 @@
 from flask import Blueprint, request, jsonify, render_template
 
 from sklearn.linear_model import LogisticRegressionCV # for example
+from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import DecisionTreeClassifier 
 from sklearn.pipeline import make_pipeline
@@ -50,12 +51,10 @@ def predict():
         labels.append(user_b.screen_name)
         embeddings.append(tweet.embedding)
         
-    pipeline = make_pipeline(ce.OrdinalEncoder(), 
-    DecisionTreeClassifier(min_samples_leaf=3, random_state=42, max_depth=9))
-
+    pipeline = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000))
     pipeline.fit(embeddings, labels)
     
-    print("classifier training score:", pipeline.score(embeddings, labels))
+
     print("-----------------")
     print("MAKING A PREDICTION...")
     

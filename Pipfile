@@ -16,6 +16,8 @@ tweepy = "*"
 scikit-learn = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+spotipy = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"

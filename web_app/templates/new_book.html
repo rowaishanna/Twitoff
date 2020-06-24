@@ -1,5 +1,6 @@
 {% extends "bootstrap_layout.html" %}
 {% set active_page = "new_book" %}
+{% block content %}
   <h1>New Book Page</h1>
 
     <p>Please fill out the form and submit to create a new book!</p>
@@ -7,18 +8,18 @@
     <form action="/books/create" method="POST">
 
         <label>Title:</label>
-        <input type="text" name="title" placeholder="Book XYZ" value="Book XYZ">
+        <input type="text" name="title" placeholder="insert book title here" value="insert book title here">
 
         <label>Author:</label>
-        <select name="author_name">
-          <option value="A1">Author 1</option>
-          <option value="A2">Author 2</option>
-          <option value="A3">Author 3</option>
-        </select>
+        <input type="text" name="author_name" placeholder="insert author name here" value="insert author name here">
+        <!--select name="author_name">
+          <!option value="A1">Author 1</option>
+          <!option value="A2">Author 2</option>
+          <!option value="A3">Author 3</option>
+        <!/select-->
 
         <button>Submit</button>
     </form>
 {% endblock %}
-</body>
-</html>
+
     
