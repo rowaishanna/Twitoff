@@ -9,12 +9,12 @@ from web_app.routes.stats_routes import stats_routes
 
 load_dotenv()
 
-DATABASE_URI = "sqlite:///twitoff_rowais.db" 
+DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = "temporary secret value. todo read from env var and customize on production to keep session secure"
 def create_app():
     app = Flask(__name__)
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
+    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
     app.config["SECRET_KEY"] = SECRET_KEY
     db.init_app(app)
     migrate.init_app(app, db)
